@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: observacoes-deployment
+  labels:
+    app: observacoes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: observacoes
+  template:
+    metadata:
+      labels:
+        app: observacoes
+    spec:
+      containers:
+      - name: observacoes
+        image: observacoes-service:latest 
+        ports:
+        - containerPort: 5000
